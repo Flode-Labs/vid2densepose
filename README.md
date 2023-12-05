@@ -1,6 +1,5 @@
 # Vid2DensePose
-I want to insert a video here that is in the folder sample_videos
-
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1x77dESn7EGPCqjKdQ1sJJhNu0Cf-5Gpt?usp=sharing]
 
 ## Overview
 
