@@ -3,6 +3,8 @@
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
+![](https://github.com/Flode-Labs/vid2densepose/blob/main/sample_videos/side_by_side.gif)
+
 ## Overview
 
 The Vid2DensePose is a powerful tool designed for applying the DensePose model to videos, generating detailed "Part Index" visualizations for each frame. This tool is exceptionally useful for enhancing animations, particularly when used in conjunction with MagicAnimate for temporally consistent human image animation.
