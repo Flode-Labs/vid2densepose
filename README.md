@@ -1,5 +1,7 @@
 # Vid2DensePose
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1x77dESn7EGPCqjKdQ1sJJhNu0Cf-5Gpt?usp=sharing]
+<a target="_blank" href="https://colab.research.google.com/github/https://colab.research.google.com/drive/1x77dESn7EGPCqjKdQ1sJJhNu0Cf-5Gpt?usp=sharing">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
 
 ## Overview
 
