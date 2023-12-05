@@ -56,11 +56,6 @@ For integration with MagicAnimate:
 1. Create the densepose video using the steps outlined above.
 2. Use this output as an input to MagicAnimate for generating temporally consistent animations.
 
-Make sure MagicAnimate is set up to support the video format produced by this tool.
-
-## Licensing
-
-This project is released under the MIT license, promoting open-source collaboration.
 
 ## Acknowledgments
 
