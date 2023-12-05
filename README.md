@@ -51,6 +51,12 @@ To utilize this tool, ensure the installation of:
 
 The script processes the input video and generates an output with the densePose format.
 
+####  Gradio version
+You can also use the Gradio to run the script with an interface. To do so, run the following command:
+```bash
+python app.py
+```
+
 ## Integration with MagicAnimate
 
 For integration with MagicAnimate:
