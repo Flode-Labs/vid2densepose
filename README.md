@@ -26,7 +26,7 @@ To utilize this tool, ensure the installation of:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/flode/vid2densepose.git
+    git clone https://github.com/Flode-Labs/vid2densepose.git
     cd vid2densepose
     ```
 
