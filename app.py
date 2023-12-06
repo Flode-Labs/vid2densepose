@@ -9,6 +9,7 @@ from densepose.vis.extractor import DensePoseResultExtractor
 from densepose.vis.densepose_results import DensePoseResultsFineSegmentationVisualizer as Visualizer
 import tempfile
 import shutil
+import argparse
 
 # Function to process video
 def process_video(input_video_path):
@@ -61,5 +62,9 @@ iface = gr.Interface(
     title="Video 2 DensePose"
 )
 
+parser = argparse.ArgumentParser(description='Convert your videos to densepose and use it on MagicAnimate')
+parser.add_argument('--share', action='store_true', default=False, help='Share the app on Gradio')
+args = parser.parse_args()
+
 # Run the app
-iface.launch()
+iface.launch(share=args.share)
