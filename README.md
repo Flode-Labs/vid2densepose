@@ -37,7 +37,7 @@ To utilize this tool, ensure the installation of:
 
 3. Clone the Detectron repository:
     ```bash
-        git clone https://github.com/facebookresearch/detectron2.git
+    git clone https://github.com/facebookresearch/detectron2.git
     ```
 
 ## Usage Guide
