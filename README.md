@@ -42,11 +42,9 @@ To utilize this tool, ensure the installation of:
 
 ## Usage Guide
 
-1. Modify the `main.py` script to set your desired input (`INPUT_VIDEO_PATH`) and output (`OUTPUT_VIDEO_PATH`) video paths.
-
-2. Run the script:
+Run the script:
     ```bash
-    python main.py 
+    python main.py -i input_video.mp4 -o output_video.mp4
     ```
 
 The script processes the input video and generates an output with the densePose format.
