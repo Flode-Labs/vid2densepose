@@ -20,6 +20,7 @@ def process_video(input_video_path):
     add_densepose_config(cfg)
     cfg.merge_from_file("detectron2/projects/DensePose/configs/densepose_rcnn_R_50_FPN_s1x.yaml")
     cfg.MODEL.WEIGHTS = "https://dl.fbaipublicfiles.com/densepose/densepose_rcnn_R_50_FPN_s1x/165712039/model_final_162be9.pkl"
+    cfg.MODEL.DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
     predictor = DefaultPredictor(cfg)
 
     # Open the input video
