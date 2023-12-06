@@ -37,7 +37,7 @@ To utilize this tool, ensure the installation of:
 
 3. Clone the Detectron repository:
     ```bash
-        git clone https://github.com/facebookresearch/detectron2.git
+    git clone https://github.com/facebookresearch/detectron2.git
     ```
 
 ## Usage Guide
@@ -70,6 +70,8 @@ For integration with MagicAnimate:
 Special thanks to:
 - Facebook AI Research (FAIR) for the development of DensePose.
 - The contributors of the Detectron2 project.
+- [Gonzalo Vidal](https://www.tiktok.com/@_gonzavidal) for the sample videos.
+- [Sylvain Filoni](https://twitter.com/fffiloni) for the deployment of the Gradio Space in [Hugging Face](https://huggingface.co/spaces/fffiloni/video2densepose).
 
 ## Support
 
