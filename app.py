@@ -25,13 +25,15 @@ def process_video(input_video_path):
 
     # Open the input video
     cap = cv2.VideoCapture(input_video_path)
-    fps = cap.get(cv2.CAP_PROP_FPS)
-    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    # fps = cap.get(cv2.CAP_PROP_FPS)
+    desired_fps = 25
+
+    # Set output video size
+    output_video_size = 512
 
     # Initialize video writer
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-    out = cv2.VideoWriter(output_video_path, fourcc, fps, (width, height))
+    out = cv2.VideoWriter(output_video_path, fourcc, desired_fps, (output_video_size, output_video_size))
 
     # Process each frame
     while cap.isOpened():
@@ -46,9 +48,22 @@ def process_video(input_video_path):
         cmap = cv2.COLORMAP_VIRIDIS
         # Visualizer outputs black for background, but we want the 0 value of
         # the colormap, so we initialize the array with that value
-        arr = cv2.applyColorMap(np.zeros((height, width), dtype=np.uint8), cmap)
-        out_frame = Visualizer(alpha=1, cmap=cmap).visualize(arr, results)        
-        out.write(out_frame)
+        arr = cv2.applyColorMap(np.zeros((frame.shape[0], frame.shape[1]), dtype=np.uint8), cmap)
+        out_frame = Visualizer(alpha=1, cmap=cmap).visualize(arr, results)
+
+        # Apply padding to maintain aspect ratio
+        h, w = out_frame.shape[:2]
+        if h > w:
+            pad = (h - w) // 2
+            padded_frame = cv2.copyMakeBorder(out_frame, 0, 0, pad, pad, cv2.BORDER_CONSTANT, value=[0, 0, 0])
+        else:
+            pad = (w - h) // 2
+            padded_frame = cv2.copyMakeBorder(out_frame, pad, pad, 0, 0, cv2.BORDER_CONSTANT, value=[0, 0, 0])
+
+        # Resize the padded frame
+        resized_padded_frame = cv2.resize(padded_frame, (output_video_size, output_video_size))
+
+        out.write(resized_padded_frame)
 
     # Release resources
     cap.release()
@@ -56,6 +71,7 @@ def process_video(input_video_path):
 
     # Return processed video
     return output_video_path
+
 
 # Gradio interface
 iface = gr.Interface(
