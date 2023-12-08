@@ -37,16 +37,14 @@ To utilize this tool, ensure the installation of:
 
 3. Clone the Detectron repository:
     ```bash
-        git clone https://github.com/facebookresearch/detectron2.git
+    git clone https://github.com/facebookresearch/detectron2.git
     ```
 
 ## Usage Guide
 
-1. Modify the `main.py` script to set your desired input (`INPUT_VIDEO_PATH`) and output (`OUTPUT_VIDEO_PATH`) video paths.
-
-2. Run the script:
+Run the script:
     ```bash
-    python main.py 
+    python main.py -i input_video.mp4 -o output_video.mp4
     ```
 
 The script processes the input video and generates an output with the densePose format.
@@ -84,6 +82,8 @@ For integration with MagicAnimate:
 Special thanks to:
 - Facebook AI Research (FAIR) for the development of DensePose.
 - The contributors of the Detectron2 project.
+- [Gonzalo Vidal](https://www.tiktok.com/@_gonzavidal) for the sample videos.
+- [Sylvain Filoni](https://twitter.com/fffiloni) for the deployment of the Gradio Space in [Hugging Face](https://huggingface.co/spaces/fffiloni/video2densepose).
 
 ## Support
 
