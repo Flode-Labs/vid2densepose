@@ -47,7 +47,7 @@ def process_video(input_video_path):
         # Visualizer outputs black for background, but we want the 0 value of
         # the colormap, so we initialize the array with that value
         arr = cv2.applyColorMap(np.zeros((height, width), dtype=np.uint8), cmap)
-        out_frame = Visualizer(alpha=1, cmap=cmap).visualize(arr, results)        
+        out_frame = Visualizer(alpha=1, cmap=cmap).visualize(arr, results)
         out.write(out_frame)
 
     # Release resources
