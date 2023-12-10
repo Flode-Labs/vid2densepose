@@ -9,6 +9,7 @@ from densepose.vis.extractor import DensePoseResultExtractor
 from densepose.vis.densepose_results import DensePoseResultsFineSegmentationVisualizer as Visualizer
 import tempfile
 import shutil
+from tqdm import tqdm
 
 # Function to process video
 def process_video(input_video_path):
@@ -22,8 +23,8 @@ def process_video(input_video_path):
     cfg.MODEL.WEIGHTS = "https://dl.fbaipublicfiles.com/densepose/densepose_rcnn_R_50_FPN_s1x/165712039/model_final_162be9.pkl"
     cfg.MODEL.DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
     predictor = DefaultPredictor(cfg)
-
-    # Open the input video
+    
+# Open the input video
     cap = cv2.VideoCapture(input_video_path)
     fps = cap.get(cv2.CAP_PROP_FPS)
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
@@ -33,8 +34,9 @@ def process_video(input_video_path):
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     out = cv2.VideoWriter(output_video_path, fourcc, fps, (width, height))
 
-    # Process each frame
-    while cap.isOpened():
+    # Process each frame with tqdm
+    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    for _ in tqdm(range(total_frames), desc="Processing Frames", unit="frames"):
         ret, frame = cap.read()
         if not ret:
             break
