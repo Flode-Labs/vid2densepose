@@ -9,6 +9,7 @@ from densepose.vis.extractor import DensePoseResultExtractor
 from densepose.vis.densepose_results import DensePoseResultsFineSegmentationVisualizer as Visualizer
 import tempfile
 import shutil
+import argparse
 
 # Function to process video
 def process_video(input_video_path):
@@ -47,7 +48,7 @@ def process_video(input_video_path):
         # Visualizer outputs black for background, but we want the 0 value of
         # the colormap, so we initialize the array with that value
         arr = cv2.applyColorMap(np.zeros((height, width), dtype=np.uint8), cmap)
-        out_frame = Visualizer(alpha=1, cmap=cmap).visualize(arr, results)        
+        out_frame = Visualizer(alpha=1, cmap=cmap).visualize(arr, results)
         out.write(out_frame)
 
     # Release resources
@@ -65,5 +66,9 @@ iface = gr.Interface(
     title="Video 2 DensePose"
 )
 
+parser = argparse.ArgumentParser(description='Convert your videos to densepose and use it on MagicAnimate')
+parser.add_argument('--share', action='store_true', default=False, help='Share the app on Gradio')
+args = parser.parse_args()
+
 # Run the app
-iface.launch()
+iface.launch(share=args.share)

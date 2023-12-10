@@ -56,6 +56,20 @@ You can also use the Gradio to run the script with an interface. To do so, run t
 python app.py
 ```
 
+## Google Colab
+
+Google Colab users can using it by executing the following command and accessing the generated Gradio Public URL.  
+(Probably, I think this is currently only available in the Colab Pro.)
+
+```bash
+%cd /content
+!git clone https://github.com/Flode-Labs/vid2densepose.git
+%cd /content/vid2densepose
+!pip install -r requirements.txt
+!git clone https://github.com/facebookresearch/detectron2.git
+!python app.py  --share
+```
+
 ## Integration with MagicAnimate
 
 For integration with MagicAnimate:
